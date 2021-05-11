@@ -3,37 +3,19 @@ cat << EOF
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body {
-            font-family: sans-serif;
-            width: 80vw;
-        }
-        a:link, a:visited, a:active {
-            color: black;
-        }
-        a {
-            display: block;
-            text-decoration: none;
-        }
-        a:hover {
-            color: red;
-        }
-        @media (orientation: portrait) {
-            body {
-                font-size : 5vw;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/links-list.css">
+    <link rel="stylesheet" href="./css/mobile.css">
 </head>
 <body>
-<section class="links">
+    <ul class="links-list">
 EOF
 
-sort favoritos.txt | awk -F ': ' '{printf "<a href=\42%s\42 target=\42_blank\42> %s </a>\n", $2, $1}'
+sort favoritos.txt | awk -F ': ' '{printf "\t\t<li class=\42item\42> <a class=\42link\42 href=\42%s\42 target=\42_blank\42> %s </a></li>\n", $2, $1}'
 
 
 cat << EOF 
-</section>
+    </ul>
 </body>
 </html>
 EOF
