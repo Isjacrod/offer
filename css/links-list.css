@@ -1,0 +1,11 @@
+.links-list {
+    padding: 0;
+}
+
+.links-list > .item {
+    display: block;
+}
+
+.links-list .link:hover {
+    color: #ff0000;
+}
